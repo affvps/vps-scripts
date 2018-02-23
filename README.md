@@ -1,3 +1,6 @@
 # vps-scripts
 脚本来自网络收集，并按照本人使用习惯进行部分修改
 感谢网络上的大佬们，同时欢迎其他人转载使用本人修改的脚本
+add-swap
+https://github.com/nanqinlang/swap-add/blob/master/swap-add.sh
+https://github.com/liangxyz/testrace/blob/master/swap.sh
