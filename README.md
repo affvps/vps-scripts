@@ -7,6 +7,9 @@ https://github.com/nanqinlang/swap-add/blob/master/swap-add.sh  
 https://github.com/liangxyz/testrace/blob/master/swap.sh  
 * 使用方法  
 <pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/add-swap/add-swap.sh && bash add-swap.sh</pre></code>
-## ZBench    
+## zbench  
+修改自ZBench脚本  
+https://github.com/FunctionClub/ZBench/  
+* 使用方法  
 <pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/ZBench.sh && bash ZBench.sh  
 wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/ZBench-CN.sh && bash ZBench-CN.sh</pre></code>
