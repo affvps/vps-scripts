@@ -470,10 +470,6 @@ html = """
 footer = """
 </div>
 </div>
-<div class="ui hidden divider"></div>
-<div class="ui visible message">
-  <p>CopyRight 2016-2018 <a href="https://www.github.com/FunctionClub">Function Club</a>. All Right Reserved.   Published By <a href="https://www.zhujiboke.com">主机博客</a></p>
-</div>
 
 </body>
 <footer>
