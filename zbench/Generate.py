@@ -130,10 +130,6 @@ html = """
 	<a class="item" onclick="javascript:scroller('route', 1600);">
       <i class="plug icon"></i> 路由追踪
     </a>
-    <div class="ui simple dropdown item">
-      更多
-      <i class="dropdown icon"></i>
-    </div>
   </div>
 </div>
 
