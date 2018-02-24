@@ -8,7 +8,7 @@ https://github.com/liangxyz/testrace/blob/master/swap.sh  
 * 使用方法  
 <pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/add-swap/add-swap.sh && bash add-swap.sh</pre></code>
 * 特殊小小鸡  
-如果遇到某些特殊小鸡过于营养不良导致可用空间不足500M，请使用以下命令增加Swap
+如果遇到某些特殊小鸡过于营养不良导致可用空间不足500M，请使用以下命令增加你需要的Swap容量，例如256M
 <pre><code>dd if=/dev/zero of=/swapfile bs=1M count=256 && \
 chmod 600 /swapfile  && \
 mkswap /swapfile  && \
