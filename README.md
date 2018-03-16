@@ -40,4 +40,12 @@ curl -Lso- bench.sh | bash</pre>
 ## bbr
 来自teddysun大佬脚本 https://github.com/teddysun/across
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bbr/bbr.sh && chmod +x bbr.sh && ./bbr.sh</pre>
-
+安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启。
+重启完成后，进入 VPS，验证一下是否成功安装最新内核并开启 TCP BBR，输入以下命令：
+<pre>uname -r && sysctl net.ipv4.tcp_available_congestion_control && sysctl net.ipv4.tcp_congestion_control && sysctl net.core.default_qdisc && lsmod | grep bbr</pre>
+依次显示以下信息即为安装bbr成功
+<pre>最新内核
+net.ipv4.tcp_available_congestion_control = bbr cubic reno
+net.ipv4.tcp_congestion_control = bbr
+net.core.default_qdisc = fq
+返回值有 tcp_bbr 模块即说明 bbr 已启动。注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。</pre>
