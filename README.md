@@ -34,8 +34,7 @@ chown root:root /usr/local/bin/speedtest
 speedtest</pre>
 
 ## bench 
-<pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bench/bench.sh && bash bench.sh
-
+<pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bench/bench.sh && bash bench.sh</pre>
 官方方法：
-<pre>wget -qO- bench.sh | bash
-curl -Lso- bench.sh | bash</pre>
+<pre>wget -qO- bench.sh | bash</pre>
+<pre>curl -Lso- bench.sh | bash</pre>
