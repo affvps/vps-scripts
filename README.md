@@ -33,7 +33,7 @@ mv speedtest.py /usr/local/bin/speedtest
 chown root:root /usr/local/bin/speedtest
 speedtest</pre>
 
-## bench
+## bench 
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bench/bench.sh && bash bench.sh
 
 官方方法：
