@@ -26,3 +26,9 @@ https://github.com/FunctionClub/ZBench/
 * 使用方法  
 <pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/ZBench.sh && bash ZBench.sh
 wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/ZBench-CN.sh && bash ZBench-CN.sh</pre></code>
+## speedtest
+<pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/speedtest/speedtest.py
+chmod a+rx speedtest.py
+mv speedtest.py /usr/local/bin/speedtest
+chown root:root /usr/local/bin/speedtest
+speedtest</pre>
