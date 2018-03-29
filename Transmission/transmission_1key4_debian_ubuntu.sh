@@ -16,15 +16,15 @@ fi
 
 # CONFIGURATION
 username=""
-read -p "Set username(dadi.me):" username
+read -p "Set username(set_username):" username
 if [ "$username" = "" ]; then
-	username="dadi.me"
+	username="set_username"
 fi
 
 password=""
-read -p "Set password(dadi.me):" password
+read -p "Set password(your_password):" password
 if [ "$password" = "" ]; then
-	password="dadi.me"
+	password="your_password"
 fi
 
 port=""
@@ -61,7 +61,7 @@ fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
-wget http://dadi.me/wp-content/uploads/dir/Transmission/settings.json
+wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Transmission/settings.json
 mv -f settings.json /var/lib/transmission-daemon/info/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
@@ -71,6 +71,7 @@ sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-dae
 mkdir -p /home/downloads/
 chmod -R 777 /home/downloads/
 
+# 美化WEB界面
 # 获取第一个参数做为目录
 ROOT_FOLDER="$1"
 WEB_FOLDER=""
