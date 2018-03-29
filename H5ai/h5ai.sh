@@ -22,7 +22,7 @@ Error="${Red}[Error]${Font}"
 
 #folder
 nginx_conf_dir="/etc/nginx/conf.d"
-h5ai_download_http="https://github.com/lmc920/vps-scripts/tree/master/H5ai/h5ai_dplayer.zip"
+h5ai_download_http="https://raw.githubusercontent.com/lmc920/vps-scripts/master/H5ai/h5ai_dplayer.zip"
 
 
 source /etc/os-release &>/dev/null
