@@ -59,3 +59,13 @@ cd h5ai
 bash h5ai.sh |tee h5ai.log
 #脚本备份
 https://www.moerats.com/usr/shell/h5ai_ssl.sh</pre>
+## Debian/Ubuntu一键安装Transmission并美化Web页面
+安装：
+<pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Transmission/debian-transmission.sh
+bash debian-transmission.sh</pre>
+美化：
+<pre>wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh
+bash install-tr-control.sh</pre>
+一键版：
+<pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Transmission/transmission_1key4_debian_ubuntu.sh
+bash transmission_1key4_debian_ubuntu.sh</pre>
