@@ -50,6 +50,10 @@ net.ipv4.tcp_congestion_control = bbr
 net.core.default_qdisc = fq
 返回值有 tcp_bbr 模块即说明 bbr 已启动。注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。</pre>
 其余详细使用方法等详见https://teddysun.com/489.html
+## shadowsocks四合一
+<pre>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log</pre>
 ## H5ai一键安装脚本
 H5ai一键安装脚本（基于Nginx+PHP 7），自动配置SSL证书 
 系统要求：Debian 8+/Ubuntu 16.04+，并使用纯净状态的发行版系统安装。还需要提前将你的域名解析到服务器。 
