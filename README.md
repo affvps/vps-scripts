@@ -1,6 +1,6 @@
 # vps-scripts
 脚本来自网络收集，并按照本人使用习惯进行部分修改  
-感谢网络上的大佬们，同时欢迎其他人转载使用本人修改的脚本  
+感谢网络上的大佬们，同时欢迎其他人转载使用本人修改的脚本  
 由于“wget —no-check-certificate”存在安全隐患，所有下载地址本人均移除该参数，如果遇到 “wget … not trusted …” 报错，请使用命令“apt-get install -y ca-certificates”先安装ca-certificates
 ## add-swap  
 此脚本可以一键增加500M Swap  
