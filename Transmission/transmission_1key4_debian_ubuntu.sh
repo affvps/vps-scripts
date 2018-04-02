@@ -71,8 +71,8 @@ sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/tr
 sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-daemon/info/settings.json
 /etc/init.d/transmission-daemon start
 
-mkdir -p /home/downloads/
-chmod -R 777 /home/downloads/
+mkdir -p /home/GoogleDrive/
+chmod -R 777 /home/GoogleDrive/
 
 # 美化WEB界面
 # 获取第一个参数做为目录
