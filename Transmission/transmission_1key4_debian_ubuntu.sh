@@ -2,8 +2,6 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-# http://dadi.me/ dadi.ME
-# 2013.03.30
 # Transmission | Debian
 
 # VERSION CHOICE
@@ -16,15 +14,15 @@ fi
 
 # CONFIGURATION
 username=""
-read -p "Set username(set_username):" username
+read -p "Set username(transmission_username):" username
 if [ "$username" = "" ]; then
-	username="set_username"
+	username="transmission_username"
 fi
 
 password=""
-read -p "Set password(your_password):" password
+read -p "Set password(transmission_password):" password
 if [ "$password" = "" ]; then
-	password="your_password"
+	password="transmission_password"
 fi
 
 port=""
