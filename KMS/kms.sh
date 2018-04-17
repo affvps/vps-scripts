@@ -141,13 +141,13 @@ install_main() {
 
     if [[ x"${release}" == x"centos" ]]; then
         yum -y install gcc git make
-        if ! wget --no-check-certificate -O /etc/init.d/kms https://raw.githubusercontent.com/lmc920/vps-scripts/KMS/kms-centos; then
+        if ! wget --no-check-certificate -O /etc/init.d/kms https://raw.githubusercontent.com/lmc920/vps-scripts/master/KMS/kms-centos; then
             echo -e "[${red}Error:${plain}] Failed to download KMS Server script."
             exit 1
         fi
     elif [[ x"${release}" == x"debian" || x"${release}" == x"ubuntu" ]]; then
         apt-get install gcc git make
-        if ! wget --no-check-certificate -O /etc/init.d/kms https://raw.githubusercontent.com/lmc920/vps-scripts/KMS/kms-debian; then
+        if ! wget --no-check-certificate -O /etc/init.d/kms https://raw.githubusercontent.com/lmc920/vps-scripts/master/KMS/kms-debian; then
             echo -e "[${red}Error:${plain}] Failed to download KMS Server script."
             exit 1
         fi
