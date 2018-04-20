@@ -25,8 +25,8 @@ sysctl -p</pre></code>
 修改自ZBench脚本  
 https://github.com/FunctionClub/ZBench/  
 * 使用方法  
-<pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/ZBench.sh && bash ZBench.sh
-wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/ZBench-CN.sh && bash ZBench-CN.sh</pre></code>
+<pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZBench.sh && bash ZBench.sh
+wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZBench-CN.sh && bash ZBench-CN.sh</pre></code>
 ## speedtest
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/speedtest/speedtest.py
 chmod a+rx speedtest.py
