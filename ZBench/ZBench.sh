@@ -48,8 +48,6 @@ if  [ ! -e '/usr/sbin/virt-what' ]; then
     fi      
 fi
 
-
-
 # Install uuid
 echo "Installing uuid......"
 if [ "${release}" == "centos" ]; then

@@ -121,7 +121,12 @@ chmod a+rx /tmp/ZPing-CN.py
 /tmp/besttrace 211.136.192.6 > /tmp/gdm.txt 2>&1 &
 #"TraceRoute to Guangdong Unicom"
 /tmp/besttrace 221.5.88.88 > /tmp/gdu.txt 2>&1 &
-
+#"TraceRoute to Beijing Telecom"
+/tmp/besttrace st1.bjtelecom.net > /tmp/bjt.txt 2>&1 &
+#"TraceRoute to Beijing Mobile"
+/tmp/besttrace speedtest.bmcc.com.cn > /tmp/bjm.txt 2>&1 &
+#"TraceRoute to Beijing Unicom"
+/tmp/besttrace www2.unicomtest.com > /tmp/bju.txt 2>&1 &
 
 
 get_opsy() {
@@ -205,7 +210,7 @@ speed_cn() {
     speed_test_cn '12637' '襄阳电信'
     speed_test_cn '7509' '杭州电信'
     speed_test_cn '4624' '成都电信'
-    speed_test_cn '4863' "西安电信"
+    speed_test_cn '4863' "西安联通"
     speed_test_cn '5083' '上海联通'
     speed_test_cn '5726' '重庆联通'
     speed_test_cn '5192' "西安移动"
@@ -371,5 +376,8 @@ TSU=$( cat /tmp/shu.txt_table )
 TGM=$( cat /tmp/gdm.txt_table )
 TGT=$( cat /tmp/gdt.txt_table )
 TGU=$( cat /tmp/gdu.txt_table )
+TBM=$( cat /tmp/bjm.txt_table )
+TBT=$( cat /tmp/bjt.txt_table )
+TBU=$( cat /tmp/bju.txt_table )
 
 echo "您的测评报告已保存在 /root/report.html"
