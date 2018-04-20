@@ -462,9 +462,9 @@ html = """
   <a class="item" data-tab="fourth">广东移动</a>
   <a class="item" data-tab="fifth">广东电信</a>
   <a class="item" data-tab="sixth">广东联通</a>
-  <a class="item" data-tab="fourth">北京移动</a>
-  <a class="item" data-tab="fifth">北京电信</a>
-  <a class="item" data-tab="sixth">北京联通</a>
+  <a class="item" data-tab="seventh">北京移动</a>
+  <a class="item" data-tab="eighth">北京电信</a>
+  <a class="item" data-tab="ninth">北京联通</a>
 </div>
 
 """
