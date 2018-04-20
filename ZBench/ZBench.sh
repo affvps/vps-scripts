@@ -123,7 +123,12 @@ chmod a+rx /tmp/ZPing.py
 /tmp/besttrace 211.136.192.6 > /tmp/gdm.txt 2>&1 &
 #"TraceRoute to Guangdong Unicom"
 /tmp/besttrace 221.5.88.88 > /tmp/gdu.txt 2>&1 &
-
+#"TraceRoute to Beijing Telecom"
+/tmp/besttrace st1.bjtelecom.net > /tmp/bjt.txt 2>&1 &
+#"TraceRoute to Beijing Mobile"
+/tmp/besttrace speedtest.bmcc.com.cn > /tmp/bjm.txt 2>&1 &
+#"TraceRoute to Beijing Unicom"
+/tmp/besttrace www2.unicomtest.com > /tmp/bju.txt 2>&1 &
 
 
 get_opsy() {
@@ -207,7 +212,7 @@ speed_cn() {
     rm -rf /tmp/speed_cn.txt && touch /tmp/speed_cn.txt
 
     speed_test_cn '12637' 'Xiangyang CT'
-    speed_test_cn '3633' 'Shanghai  CT'
+    speed_test_cn '7509' 'Hangzhou  CT'
     speed_test_cn '4624' 'Chengdu   CT'
     speed_test_cn '4863' "Xi'an     CU"
     speed_test_cn '5083' 'Shanghai  CU'
@@ -376,5 +381,8 @@ TSU=$( cat /tmp/shu.txt_table )
 TGM=$( cat /tmp/gdm.txt_table )
 TGT=$( cat /tmp/gdt.txt_table )
 TGU=$( cat /tmp/gdu.txt_table )
+TBM=$( cat /tmp/bjm.txt_table )
+TBT=$( cat /tmp/bjt.txt_table )
+TBU=$( cat /tmp/bju.txt_table )
 
 echo "Your bench data is saved to /root/report.html"

@@ -462,9 +462,6 @@ html = """
   <a class="item" data-tab="fourth">广东移动</a>
   <a class="item" data-tab="fifth">广东电信</a>
   <a class="item" data-tab="sixth">广东联通</a>
-  <a class="item" data-tab="fourth">北京移动</a>
-  <a class="item" data-tab="fifth">北京电信</a>
-  <a class="item" data-tab="sixth">北京联通</a>
 </div>
 
 """
@@ -609,17 +606,6 @@ gdu = traceroute_to_dict("/tmp/gdu.txt")
 traceroute_to_table("/tmp/gdu.txt")
 gdu_html = dict_to_table(gdu,"sixth")
 
-bjm = traceroute_to_dict("/tmp/bjm.txt")
-traceroute_to_table("/tmp/bjm.txt")
-bjm_html = dict_to_table(bjm,"seventh")
-
-bjt = traceroute_to_dict("/tmp/bjt.txt")
-traceroute_to_table("/tmp/bjt.txt")
-bjt_html = dict_to_table(bjt,"eighth")
-
-bju = traceroute_to_dict("/tmp/bju.txt")
-traceroute_to_table("/tmp/bju.txt")
-bju_html = dict_to_table(bju,"ninth")
 
 html = html.format(info[0],info[1],info[2],info[3],info[4],info[5],info[6],info[7],info[8],info[9],info[10],info[11],info[12],info[13],info[14], \
 
