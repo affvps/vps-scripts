@@ -35,32 +35,17 @@ PLAIN='\033[0m'
 
 rm -rf /tmp/report && mkdir /tmp/report
 
-# Install locales
-
-if [ "${release}" != "centos" ]; then
-    apt-get update > /dev/null 2>&1
-    apt-get -y install locales > /dev/null 2>&1
-fi      
+echo "正在安装必要的依赖，请耐心等待..."
 
 # Install Virt-what
 if  [ ! -e '/usr/sbin/virt-what' ]; then
     echo "Installing Virt-What......"
     if [ "${release}" == "centos" ]; then
-        yum update > /dev/null 2>&1
         yum -y install virt-what > /dev/null 2>&1
     else
+        apt-get update
         apt-get -y install virt-what > /dev/null 2>&1
     fi      
-fi
-
-
-
-# Install ca-certificates
-echo "Installing ca-certificates......"
-if [ "${release}" == "centos" ]; then
-    yum -y install ca-certificates > /dev/null 2>&1
-else
-    apt-get -y install ca-certificates > /dev/null 2>&1
 fi
 
 # Install uuid
@@ -86,7 +71,7 @@ if  [ ! -e '/tmp/besttrace' ]; then
     echo "Installing Besttrace......"
     dir=$(pwd)
     cd /tmp/
-    wget  -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/ZBench/master/besttrace > /dev/null 2>&1
+    wget  -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/besttrace
@@ -119,7 +104,7 @@ if  [ ! -e '/tmp/ZPing-CN.py' ]; then
     echo "Installing ZPing-CN.py......"
     dir=$(pwd)
     cd /tmp/
-    wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/ZBench/master/ZPing-CN.py > /dev/null 2>&1
+    wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZPing-CN.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/ZPing-CN.py
@@ -377,7 +362,8 @@ NetPiSM=$( sed -n "24p" /tmp/speed_cn.txt )
 NetUPCM=$( sed -n "25p" /tmp/speed_cn.txt )
 NetDWCM=$( sed -n "26p" /tmp/speed_cn.txt )
 NetPiCM=$( sed -n "27p" /tmp/speed_cn.txt )
-wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/Generate.py >> /dev/null 2>&1
+
+wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
 python Generate.py && rm -rf Generate.py && cp /root/report.html /tmp/report/index.html
 TSM=$( cat /tmp/shm.txt_table )
 TST=$( cat /tmp/sht.txt_table )
@@ -397,12 +383,3 @@ while :; do echo
     break
   fi
 done
-
-if [[ $ifreport == 'y' ]];then
-    echo ""
-    myip=`curl -m 10 -s http://members.3322.org/dyndns/getip`
-    echo "访问 http://${myip}:8001/index.html 查看您的测试报告，按 Ctrl + C 退出" 
-	cd /tmp/report
-    python -m SimpleHTTPServer 8001
-    iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8001 -j ACCEPT
-fi

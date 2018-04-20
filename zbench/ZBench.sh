@@ -35,11 +35,12 @@ PLAIN='\033[0m'
 
 rm -rf /tmp/report && mkdir /tmp/report
 
+echo "Installing required packages, please wait..."
+
 # Install Virt-what
 if  [ ! -e '/usr/sbin/virt-what' ]; then
     echo "Installing Virt-What......"
     if [ "${release}" == "centos" ]; then
-        yum update > /dev/null 2>&1
         yum -y install virt-what > /dev/null 2>&1
     else
         apt-get update > /dev/null 2>&1
@@ -48,14 +49,6 @@ if  [ ! -e '/usr/sbin/virt-what' ]; then
 fi
 
 
-
-# Install ca-certificates
-echo "Installing ca-certificates......"
-if [ "${release}" == "centos" ]; then
-    yum -y install ca-certificates > /dev/null 2>&1
-else
-    apt-get -y install ca-certificates > /dev/null 2>&1
-fi
 
 # Install uuid
 echo "Installing uuid......"
@@ -80,7 +73,7 @@ if  [ ! -e '/tmp/besttrace' ]; then
     echo "Installing Besttrace......"
     dir=$(pwd)
     cd /tmp/
-    wget  -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/ZBench/master/besttrace > /dev/null 2>&1
+    wget  -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/besttrace
@@ -102,7 +95,7 @@ if  [ ! -e '/tmp/speedtest.py' ]; then
     echo "Installing SpeedTest......"
     dir=$(pwd)
     cd /tmp/
-    wget  -N --no-check-certificate https://raw.github.com/sivel/speedtest-cli/master/speedtest.py > /dev/null 2>&1
+    wget -N --no-check-certificate https://raw.github.com/sivel/speedtest-cli/master/speedtest.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/speedtest.py
@@ -113,7 +106,7 @@ if  [ ! -e '/tmp/ZPing.py' ]; then
     echo "Installing ZPing.py......"
     dir=$(pwd)
     cd /tmp/
-    wget  -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/ZBench/master/ZPing.py > /dev/null 2>&1
+    wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZPing.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/ZPing.py
@@ -207,9 +200,7 @@ speed_test_cn(){
     #Record Speed_cn Data
     echo ${reupload} >> /tmp/speed_cn.txt
     echo ${REDownload} >> /tmp/speed_cn.txt
-    echo ${relatency} >> /tmp/speed_cn.txt
-    
-
+    echo ${relatency} >> /tmp/speed_cn.txt    
 }
 
 speed_cn() {
@@ -328,8 +319,6 @@ speed_cn && next
 python /tmp/ZPing.py
 next
 
-
-
 NetCFspeec=$( sed -n "2p" /tmp/speed.txt )
 NetCFping=$( sed -n "3p" /tmp/speed.txt )
 NetLJPspeed=$( sed -n "5p" /tmp/speed.txt )
@@ -379,7 +368,7 @@ NetUPCM=$( sed -n "25p" /tmp/speed_cn.txt )
 NetDWCM=$( sed -n "26p" /tmp/speed_cn.txt )
 NetPiCM=$( sed -n "27p" /tmp/speed_cn.txt )
 
-wget  -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/zbench/Generate.py >> /dev/null 2>&1
+wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
 python Generate.py && rm -rf Generate.py && cp /root/report.html /tmp/report/index.html
 TSM=$( cat /tmp/shm.txt_table )
 TST=$( cat /tmp/sht.txt_table )
@@ -399,12 +388,3 @@ while :; do echo
     break
   fi
 done
-
-if [[ $ifreport == 'y' ]];then
-    echo ""
-    myip=`curl -m 10 -s http://members.3322.org/dyndns/getip`
-    echo "Visit http://${myip}:8001/index.html to see your report，Press Ctrl + C to exit." 
-	cd /tmp/report
-    python -m SimpleHTTPServer 8001
-    iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8001 -j ACCEPT
-fi
