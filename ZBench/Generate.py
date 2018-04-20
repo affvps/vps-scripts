@@ -106,7 +106,7 @@ html = """
 <html>
 <head>
     <meta charset="UTF-8" id="home">
-    <title>Zbench Output</title>
+    <title>$Provider</title>
 <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css">
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.js"></script>
