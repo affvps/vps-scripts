@@ -617,7 +617,7 @@ speed_cn[0],speed_cn[1],speed_cn[2],speed_cn[3],speed_cn[4],speed_cn[5],speed_cn
 
 speed_cn[13],speed_cn[14],speed_cn[15],speed_cn[16],speed_cn[17],\
 
-speed_cn[18],speed_cn[19],speed_cn[20],speed_cn[21],speed_cn[22],speed_cn[23])
+speed_cn[18],speed_cn[19],speed_cn[20],speed_cn[21],speed_cn[22],speed_cn[23],speed_cn[24],speed_cn[25],speed_cn[26])
 
 html = html + shm_html + sht_html + shu_html + gdm_html + gdt_html + gdu_html + footer
 
