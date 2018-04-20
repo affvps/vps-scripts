@@ -396,45 +396,45 @@ html = """
     </tr>
     <tr>
       <td>成都电信</td>
-      <td>{51}</td>
-      <td>{52}</td>
-      <td>{53}</td>
-    </tr>
-    <tr>
-      <td>西安电信</td>
       <td>{54}</td>
       <td>{55}</td>
       <td>{56}</td>
     </tr>
     <tr>
-      <td>上海联通</td>
+      <td>西安电信</td>
       <td>{57}</td>
       <td>{58}</td>
       <td>{59}</td>
     </tr>
     <tr>
-      <td>重庆联通</td>
+      <td>上海联通</td>
       <td>{60}</td>
       <td>{61}</td>
       <td>{62}</td>
     </tr>
     <tr>
-      <td>西安移动</td>
+      <td>重庆联通</td>
       <td>{63}</td>
       <td>{64}</td>
       <td>{65}</td>
     </tr>
     <tr>
-      <td>上海移动</td>
+      <td>西安移动</td>
       <td>{66}</td>
       <td>{67}</td>
       <td>{68}</td>
     </tr>
     <tr>
-      <td>成都移动</td>
+      <td>上海移动</td>
       <td>{69}</td>
       <td>{70}</td>
       <td>{71}</td>
+    </tr>
+    <tr>
+      <td>成都移动</td>
+      <td>{72}</td>
+      <td>{73}</td>
+      <td>{74}</td>
     </tr>
   </tbody>
 </table>
