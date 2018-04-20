@@ -408,7 +408,7 @@ html = """
       <td>{56}</td>
     </tr>
     <tr>
-      <td>西安电信</td>
+      <td>西安联通</td>
       <td>{57}</td>
       <td>{58}</td>
       <td>{59}</td>
@@ -633,7 +633,7 @@ speed_cn[13],speed_cn[14],speed_cn[15],speed_cn[16],speed_cn[17],\
 
 speed_cn[18],speed_cn[19],speed_cn[20],speed_cn[21],speed_cn[22],speed_cn[23],speed_cn[24],speed_cn[25],speed_cn[26])
 
-html = html + shm_html + sht_html + shu_html + gdm_html + gdt_html + gdu_html + footer
+html = html + shm_html + sht_html + shu_html + gdm_html + gdt_html + gdu_html + bjm_html + bjt_html + bju_html + footer
 
 web = open("/root/report.html","w")
 
