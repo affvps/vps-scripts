@@ -378,13 +378,3 @@ TGT=$( cat /tmp/gdt.txt_table )
 TGU=$( cat /tmp/gdu.txt_table )
 
 echo "Your bench data is saved to /root/report.html"
-
-# If use simple http server
-while :; do echo
-  read -p "Do you want to check your Test Report? [y/n]: " ifreport
-  if [[ ! $ifreport =~ ^[y,n]$ ]]; then
-    echo "Input error! Please only input 'y' or 'n'"
-  else
-    break
-  fi
-done

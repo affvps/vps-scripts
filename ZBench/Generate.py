@@ -134,9 +134,6 @@ html = """
 </div>
 
 <div class="ui hidden divider"></div>
-<div class="ui container"></div>
-<div class="ui message red"></div>
-<div class="ui hidden divider"></div>
 <div class="ui container">
 <div class="ui message">
   <div class="header">
