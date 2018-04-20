@@ -203,7 +203,7 @@ speed_test_cn(){
 speed_cn() {
 
     speed_test_cn '12637' '襄阳电信'
-    speed_test_cn '3633' '上海电信'
+    speed_test_cn '7509' '杭州电信'
     speed_test_cn '4624' '成都电信'
     speed_test_cn '4863' "西安电信"
     speed_test_cn '5083' '上海联通'

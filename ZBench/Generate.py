@@ -364,7 +364,8 @@ html = """
     <tr>
       <td>Softlayer 新加坡</td>
       <td>{42}</td>
-      <td>{43}</td><td>{44}</td>
+      <td>{43}</td>
+	  <td>{44}</td>
     </tr>
     <tr>
       <td>Softlayer 香港</td>
@@ -389,11 +390,17 @@ html = """
   </thead>
   <tbody>
     <tr>
-      <td>上海电信</td>
+      <td>襄阳电信</td>
       <td>{48}</td>
       <td>{49}</td>
       <td>{50}</td>
     </tr>
+    <tr>
+      <td>杭州电信</td>
+      <td>{51}</td>
+      <td>{52}</td>
+      <td>{53}</td>
+    </tr>	
     <tr>
       <td>成都电信</td>
       <td>{54}</td>
