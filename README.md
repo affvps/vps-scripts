@@ -33,6 +33,7 @@ chmod a+rx speedtest.py
 mv speedtest.py /usr/local/bin/speedtest
 chown root:root /usr/local/bin/speedtest
 speedtest</pre>
+speedtest --list | grep China列出所有中国测试点
 ## bench 
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bench/bench.sh && bash bench.sh</pre>
 官方方法：
