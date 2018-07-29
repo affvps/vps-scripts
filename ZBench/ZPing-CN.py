@@ -18,6 +18,7 @@ def ping(host):
         result = False
     return float(result)
 
+
 STYLE = {
     'fore': {
         'black': 30, 'red': 31, 'green': 32, 'yellow': 33,
@@ -48,7 +49,7 @@ def use_style(string, mode='', fore='', back=''):
 D = {
     '郑州': '61.168.23.74',
     '济南': '202.102.152.3',
-    '天津': 'speedtest1.online.tj.cn',
+    '天津': '219.150.32.132',
     '昌吉': '61.128.107.242',
     '拉萨': '221.13.70.244',
     '长春': '202.98.0.68',
@@ -57,7 +58,7 @@ D = {
     '西宁': '221.207.32.94',
     '合肥': '112.122.10.26',
     '武汉': '113.57.249.2',
-    '襄阳': 'www.xydxcs.com',
+    '襄阳': '202.103.44.150',
     '南昌': 'speedtest2.wy.jxunicom.com',
     '重庆': 'speedtest1.cqccn.com',
     '上海': 'speedtest2.sh.chinamobile.com',
@@ -65,11 +66,11 @@ D = {
     '乌鲁木齐': '61.128.114.133',
     '杭州': '122.229.136.10',
     '西安': 'xatest.wo-xa.com',
-    '宁波': 'ltetest3.139site.com',
+    '宁波': '202.96.104.1',
     '太原': 'speedtest.sxunicomjzjk.cn',
     '苏州': '218.94.214.42',
     '长沙': '61.234.254.5',
-    '哈尔滨': '221.212.238.106',
+    '哈尔滨': '202.97.224.1',
     '北京': 'st1.bjtelecom.net',
     '成都': 'speed.westidc.com.cn',
     '沈阳': 'speedtest1.online.ln.cn',
@@ -77,6 +78,7 @@ D = {
     '宁夏': '221.199.9.35',
     '福州': 'upload1.testspeed.kaopuyun.com'
     }
+
 
 
 string =list()
@@ -118,3 +120,4 @@ if len(string) == 1:
     l1 = str(int(len(string[0][0])/3+12))
     mystring = "{0:"+l1+"}: {1:20}"
     print(mystring.format(string[0][0],string[0][1]))
+

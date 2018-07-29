@@ -215,9 +215,9 @@ speed_cn() {
     speed_test_cn '4863' 'Xi'an     CU'
     speed_test_cn '5083' 'Shanghai  CU'
     speed_test_cn '5726' 'Chongqing CU'
-    speed_test_cn '4751' 'Beijing   CT'
-    speed_test_cn '3633' 'Shanghai  CT'
-    speed_test_cn '17251' 'Guangzhou CT'
+    speed_test_cn '5192' 'Xi'an     CM'
+    speed_test_cn '4665' 'Shanghai  CM'
+    speed_test_cn '4575' 'Chengdu   CM'
      
     rm -rf /tmp/speedtest.py
 }
