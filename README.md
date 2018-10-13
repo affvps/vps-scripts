@@ -63,7 +63,7 @@ chmod +x shadowsocks-all.sh
 ## H5ai安装脚本
 1.提前配置lnmp后安装
 wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/H5ai/h5ai_dplayer.sh
-bash h5ai_dplayer.sh
+bash h5ai_dplayer.sh 
 2.H5ai一键安装脚本（基于Nginx+PHP 7），自动配置SSL证书 
 系统要求：Debian 8+/Ubuntu 16.04+，并使用纯净状态的发行版系统安装。还需要提前将你的域名解析到服务器。 
 <pre>apt-get install git -y
