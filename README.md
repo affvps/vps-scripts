@@ -34,6 +34,9 @@ mv speedtest.py /usr/local/bin/speedtest
 chown root:root /usr/local/bin/speedtest
 speedtest</pre>
 speedtest --list | grep China列出所有中国测试点
+## HTML5版Speedtest
+wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Speedtest4HTML5/Speedtest4HTML5.sh
+bash Speedtest4HTML5.sh
 ## bench 
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bench/bench.sh && bash bench.sh</pre>
 官方方法：
@@ -57,8 +60,11 @@ net.core.default_qdisc = fq
 <pre>wget https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 chmod +x shadowsocks-all.sh
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log</pre>
-## H5ai一键安装脚本
-H5ai一键安装脚本（基于Nginx+PHP 7），自动配置SSL证书 
+## H5ai安装脚本
+1.提前配置lnmp后安装
+wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/H5ai/h5ai_dplayer.sh
+bash h5ai_dplayer.sh
+2.H5ai一键安装脚本（基于Nginx+PHP 7），自动配置SSL证书 
 系统要求：Debian 8+/Ubuntu 16.04+，并使用纯净状态的发行版系统安装。还需要提前将你的域名解析到服务器。 
 <pre>apt-get install git -y
 git clone https://github.com/wulabing/h5ai_onekey_install-lnp-.git h5ai
