@@ -36,7 +36,7 @@ speedtest</pre>
 speedtest --list | grep China列出所有中国测试点
 ## HTML5版Speedtest
 <pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Speedtest4HTML5/Speedtest4HTML5.sh
-bash Speedtest4HTML5.sh</pre>
+bash Speedtest4HTML5.sh</pre> 
 ## bench 
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/bench/bench.sh && bash bench.sh</pre>
 官方方法：
@@ -81,4 +81,4 @@ bash debian-transmission.sh</pre>
 bash install-tr-control.sh</pre>
 一键版：
 <pre>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Transmission/transmission_1key4_debian_ubuntu.sh
-bash transmission_1key4_debian_ubuntu.sh</pre>
+bash transmission_1key4_debian_ubuntu.sh</pre> 
