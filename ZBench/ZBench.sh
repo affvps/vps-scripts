@@ -209,15 +209,15 @@ speed_test_cn(){
 speed_cn() {
     rm -rf /tmp/speed_cn.txt && touch /tmp/speed_cn.txt
 
-    speed_test_cn '12637' 'Xiangyang CT'
-    speed_test_cn '7509' 'Hangzhou  CT'
-    speed_test_cn '19076' 'Chongqing   CT'
-    speed_test_cn '4863' 'Xi'an     CU'
-    speed_test_cn '5083' 'Shanghai  CU'
-    speed_test_cn '5726' 'Chongqing CU'
-    speed_test_cn '4575' 'Sichuan   CT'
-    speed_test_cn '4647' 'Zhejiang  CT'
-    speed_test_cn '17184' 'TianJin CT'
+    speed_test_cn '12637' 'XiangYang CT'
+    speed_test_cn '7509' 'HangZhou  CT'
+    speed_test_cn '19076' 'ChongQing   CT'
+    speed_test_cn '5039' 'JiNan     CU'
+    speed_test_cn '5083' 'ShangHai  CU'
+    speed_test_cn '5726' 'ChongQing CU'
+    speed_test_cn '4575' 'SiChuan   CM'
+    speed_test_cn '4647' 'HangZhou  CM'
+    speed_test_cn '17184' 'TianJin CM'
      
     rm -rf /tmp/speedtest.py
 }
