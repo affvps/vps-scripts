@@ -213,7 +213,7 @@ speed_cn() {
     speed_test_cn '7509' 'HangZhou  CT'
     speed_test_cn '19076' 'ChongQing   CT'
     speed_test_cn '5039' 'JiNan     CU'
-    speed_test_cn '5083' 'ShangHai  CU'
+    speed_test_cn '5300' 'Hangzhou  CU'
     speed_test_cn '5726' 'ChongQing CU'
     speed_test_cn '4575' 'SiChuan   CM'
     speed_test_cn '4647' 'HangZhou  CM'

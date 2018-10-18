@@ -211,7 +211,7 @@ speed_cn() {
     speed_test_cn '7509' '杭州电信'
     speed_test_cn '19076' '重庆电信'
     speed_test_cn '5039' '济南联通'
-    speed_test_cn '5300' '杭州联通'
+    speed_test_cn '5083' '上海联通'
     speed_test_cn '5726' '重庆联通'
     speed_test_cn '4575' '四川移动'
     speed_test_cn '4647' '杭州移动'
@@ -319,7 +319,6 @@ speed_cn && next
 python /tmp/ZPing-CN.py
 next
 
-#生成Speedtest节点测试信息
 NetCFspeec=$( sed -n "2p" /tmp/speed.txt )
 NetCFping=$( sed -n "3p" /tmp/speed.txt )
 NetLJPspeed=$( sed -n "5p" /tmp/speed.txt )
@@ -343,10 +342,7 @@ NetSSGping=$( sed -n "30p" /tmp/speed.txt )
 NetSCNspeed=$( sed -n "32p" /tmp/speed.txt )
 NetSCNping=$( sed -n "33p" /tmp/speed.txt )
 
-#生成国内节点测试信息
-NetUPST=$( sed -n "1p" /tmp/speed_cn.txt )
-NetDWST=$( sed -n "2p" /tmp/speed_cn.txt )
-NetPiST=$( sed -n "3p" /tmp/speed_cn.txt )
+
 NetUPST=$( sed -n "4p" /tmp/speed_cn.txt )
 NetDWST=$( sed -n "5p" /tmp/speed_cn.txt )
 NetPiST=$( sed -n "6p" /tmp/speed_cn.txt )
