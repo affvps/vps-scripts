@@ -43,7 +43,7 @@ if  [ ! -e '/usr/sbin/virt-what' ]; then
     if [ "${release}" == "centos" ]; then
         yum -y install virt-what > /dev/null 2>&1
     else
-        apt-get update
+        apt-get update > /dev/null 2>&1
         apt-get -y install virt-what > /dev/null 2>&1
     fi      
 fi
@@ -213,9 +213,9 @@ speed_cn() {
     speed_test_cn '4863' '西安联通'
     speed_test_cn '5083' '上海联通'
     speed_test_cn '5726' '重庆联通'
-    speed_test_cn '4751' '北京电信'
-    speed_test_cn '3633' '上海电信'
-    speed_test_cn '17251' '广州电信'
+    speed_test_cn '4575' '四川移动'
+    speed_test_cn '4647' '浙江移动'
+    speed_test_cn '17184' '天津移动'
      
     rm -rf /tmp/speedtest.py
 }
