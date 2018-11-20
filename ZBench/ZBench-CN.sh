@@ -48,6 +48,15 @@ if  [ ! -e '/usr/sbin/virt-what' ]; then
     fi      
 fi
 
+# Install ca-certificates
+echo "Installing ca-certificates......"
+if [ "${release}" == "centos" ]; then
+    yum -y install ca-certificates > /dev/null 2>&1
+else
+    apt-get -y install ca-certificates > /dev/null 2>&1
+fi
+
+
 # Install uuid
 echo "Installing uuid......"
 if [ "${release}" == "centos" ]; then
@@ -108,6 +117,10 @@ if  [ ! -e '/tmp/ZPing-CN.py' ]; then
     cd $dir
 fi
 chmod a+rx /tmp/ZPing-CN.py
+
+# Disable ipv6
+echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+sysctl -p /etc/sysctl.conf
 
 #"TraceRoute to Shanghai Telecom"
 /tmp/besttrace 61.129.42.6 > /tmp/sht.txt 2>&1 &
@@ -385,3 +398,8 @@ TBT=$( cat /tmp/bjt.txt_table )
 TBU=$( cat /tmp/bju.txt_table )
 
 echo "您的测评报告已保存在 /root/report.html"
+
+# Enable ipv6
+sed -i 's/net.ipv6.conf.all.disable_ipv6 = 1/net.ipv6.conf.all.disable_ipv6 = 0/g' /etc/sysctl.conf
+sysctl -p /etc/sysctl.conf
+ping6 ipv6.google.com
