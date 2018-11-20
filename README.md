@@ -33,7 +33,7 @@ chmod a+rx speedtest.py
 mv speedtest.py /usr/local/bin/speedtest
 chown root:root /usr/local/bin/speedtest
 speedtest</pre>
-speedtest --list | grep China    ## 列出所有中国测试点
+speedtest --list | grep China    ## 列出所有中国测试点  
 speedtest --server [10086]       ## 这里使用服务器ID为10086作为例子
 ## HTML5版Speedtest
 <pre><code>wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/Speedtest4HTML5/Speedtest4HTML5.sh
