@@ -118,7 +118,7 @@ fi
 chmod a+rx /tmp/ZPing-CN.py
 
 # Disable ipv6
-echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
+echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
 sysctl -p /etc/sysctl.conf
 
 #"TraceRoute to Shanghai Telecom"
