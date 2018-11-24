@@ -6,7 +6,6 @@ if  [ ! -e '/usr/bin/wget' ]; then
     echo "Error: wget command not found. You must be install wget command at first."
     exit 1
 fi
-read -p "请输入你的服务器提供商: " Provider
 
 # Check release
 if [ -f /etc/redhat-release ]; then
@@ -400,6 +399,6 @@ TBU=$( cat /tmp/bju.txt_table )
 echo "您的测评报告已保存在 /root/report.html"
 
 # Enable ipv6
-sed -i 's/net.ipv6.conf.all.disable_ipv6 = 1/net.ipv6.conf.all.disable_ipv6 = 0/g' /etc/sysctl.conf
+sed -i '/net.ipv6.conf.all.disable_ipv6=1/d' /etc/sysctl.conf
 sysctl -p /etc/sysctl.conf
 ping6 ipv6.google.com
