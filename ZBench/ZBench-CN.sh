@@ -79,7 +79,7 @@ if  [ ! -e '/tmp/besttrace' ]; then
     echo "Installing Besttrace......"
     dir=$(pwd)
     cd /tmp/
-    wget  -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/besttrace
@@ -101,7 +101,7 @@ if  [ ! -e '/tmp/speedtest.py' ]; then
     echo "Installing SpeedTest......"
     dir=$(pwd)
     cd /tmp/
-    wget -N --no-check-certificate https://raw.github.com/sivel/speedtest-cli/master/speedtest.py > /dev/null 2>&1
+    wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/speedtest.py
@@ -112,7 +112,7 @@ if  [ ! -e '/tmp/ZPing-CN.py' ]; then
     echo "Installing ZPing-CN.py......"
     dir=$(pwd)
     cd /tmp/
-    wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZPing-CN.py > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZPing-CN.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/ZPing-CN.py
@@ -221,7 +221,7 @@ speed_cn() {
 
     speed_test_cn '12637' '襄阳电信'
     speed_test_cn '7509' '杭州电信'
-    speed_test_cn '19076' '重庆电信'
+    speed_test_cn '6168' '昆明电信'
     speed_test_cn '5039' '济南联通'
     speed_test_cn '5300' '杭州联通'
     speed_test_cn '5726' '重庆联通'
@@ -384,7 +384,7 @@ NetUPCM=$( sed -n "25p" /tmp/speed_cn.txt )
 NetDWCM=$( sed -n "26p" /tmp/speed_cn.txt )
 NetPiCM=$( sed -n "27p" /tmp/speed_cn.txt )
 
-wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
+wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
 python Generate.py && rm -rf Generate.py && cp /root/report.html /tmp/report/index.html
 TSM=$( cat /tmp/shm.txt_table )
 TST=$( cat /tmp/sht.txt_table )
