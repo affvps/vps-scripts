@@ -222,7 +222,7 @@ speed_cn() {
     speed_test_cn '12637' '襄阳电信'
     speed_test_cn '7509' '杭州电信'
     speed_test_cn '19076' '重庆电信'
-    speed_test_cn '5017' '沈阳联通'
+    speed_test_cn '5039' '济南联通'
     speed_test_cn '5300' '杭州联通'
     speed_test_cn '5726' '重庆联通'
     speed_test_cn '4575' '成都移动'
