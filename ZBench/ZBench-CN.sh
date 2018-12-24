@@ -32,7 +32,8 @@ YELLOW='\033[0;33m'
 SKYBLUE='\033[0;36m'
 PLAIN='\033[0m'
 
-rm -rf /tmp/report && mkdir /tmp/report
+# Clear tmpfiles
+mkdir /tmp/report && rm -rf /tmp/report && rm -rf /tmp/*
 
 echo "正在安装必要的依赖，请耐心等待..."
 
@@ -402,3 +403,4 @@ echo "您的测评报告已保存在 /root/report.html"
 sed -i '/net.ipv6.conf.all.disable_ipv6=1/d' /etc/sysctl.conf
 sysctl -p /etc/sysctl.conf
 ping6 ipv6.google.com
+
