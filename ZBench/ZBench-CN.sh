@@ -220,15 +220,15 @@ speed_test_cn(){
 
 speed_cn() {
 
-    speed_test_cn '12637' '襄阳电信'
+    speed_test_cn '3973' '兰州电信'
     speed_test_cn '7509' '杭州电信'
-    speed_test_cn '6168' '昆明电信'
-    speed_test_cn '5039' '济南联通'
-    speed_test_cn '5300' '杭州联通'
+    speed_test_cn '19076' '重庆电信'
+    speed_test_cn '4690' '兰州联通'
+    speed_test_cn '21005' '上海联通'
     speed_test_cn '5726' '重庆联通'
-    speed_test_cn '4575' '成都移动'
-    speed_test_cn '21590' '南京移动'
-    speed_test_cn '16005' '太原移动'
+    speed_test_cn '16145' '兰州移动'
+    speed_test_cn '4647' '杭州移动'
+    speed_test_cn '16398' '贵州移动'
      
     rm -rf /tmp/speedtest.py
 }

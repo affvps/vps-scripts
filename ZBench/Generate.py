@@ -390,7 +390,7 @@ html = """
   </thead>
   <tbody>
     <tr>
-      <td>襄阳电信</td>
+      <td>兰州电信</td>
       <td>{48}</td>
       <td>{49}</td>
       <td>{50}</td>
@@ -402,19 +402,19 @@ html = """
       <td>{53}</td>
     </tr>	
     <tr>
-      <td>昆明电信</td>
+      <td>重庆电信</td>
       <td>{54}</td>
       <td>{55}</td>
       <td>{56}</td>
     </tr>
     <tr>
-      <td>济南联通</td>
+      <td>兰州联通</td>
       <td>{57}</td>
       <td>{58}</td>
       <td>{59}</td>
     </tr>
     <tr>
-      <td>杭州联通</td>
+      <td>上海联通</td>
       <td>{60}</td>
       <td>{61}</td>
       <td>{62}</td>
@@ -426,19 +426,19 @@ html = """
       <td>{65}</td>
     </tr>
     <tr>
-      <td>成都移动</td>
+      <td>兰州移动</td>
       <td>{66}</td>
       <td>{67}</td>
       <td>{68}</td>
     </tr>
     <tr>
-      <td>南京移动</td>
+      <td>杭州移动</td>
       <td>{69}</td>
       <td>{70}</td>
       <td>{71}</td>
     </tr>
     <tr>
-      <td>太原移动</td>
+      <td>贵州移动</td>
       <td>{72}</td>
       <td>{73}</td>
       <td>{74}</td>
