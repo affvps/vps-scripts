@@ -57,6 +57,12 @@ net.ipv4.tcp_congestion_control = bbr
 net.core.default_qdisc = fq
 返回值有 tcp_bbr 模块即说明 bbr 已启动。注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。</pre>
 其余详细使用方法等详见https://teddysun.com/489.html
+## Linux-NetSpeed
+来自chiakge大佬脚本 https://github.com/chiakge/Linux-NetSpeed 
+<pre>wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"
+chmod +x tcp.sh
+./tcp.sh</pre>
+根据提示操作即可
 ## shadowsocks四合一
 <pre>wget -N --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 chmod +x shadowsocks-all.sh
