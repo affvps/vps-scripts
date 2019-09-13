@@ -167,7 +167,7 @@ speed_test() {
 
 speed() {
     speed_test 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
-    speed_test 'http://speedtest.tokyo.linode.com/100MB-tokyo.bin' 'Linode, Tokyo, JP'
+    speed_test 'http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin' 'Linode, Tokyo, JP'
     speed_test 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
     speed_test 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
     speed_test 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
@@ -221,7 +221,7 @@ speed_test_cn(){
 speed_cn() {
 
     speed_test_cn '3973' '兰州电信'
-    speed_test_cn '7509' '杭州电信'
+    speed_test_cn '3633' '杭州电信'
     speed_test_cn '19076' '重庆电信'
     speed_test_cn '4690' '兰州联通'
     speed_test_cn '21005' '上海联通'
