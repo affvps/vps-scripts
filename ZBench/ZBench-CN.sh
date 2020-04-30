@@ -80,7 +80,7 @@ if  [ ! -e '/tmp/besttrace' ]; then
     echo "Installing Besttrace......"
     dir=$(pwd)
     cd /tmp/
-    wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/besttrace
@@ -113,7 +113,7 @@ if  [ ! -e '/tmp/ZPing-CN.py' ]; then
     echo "Installing ZPing-CN.py......"
     dir=$(pwd)
     cd /tmp/
-    wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZPing-CN.py > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/ZPing-CN.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/ZPing-CN.py
@@ -385,7 +385,7 @@ NetUPCM=$( sed -n "25p" /tmp/speed_cn.txt )
 NetDWCM=$( sed -n "26p" /tmp/speed_cn.txt )
 NetPiCM=$( sed -n "27p" /tmp/speed_cn.txt )
 
-wget https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
+wget https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
 python Generate.py && rm -rf Generate.py && cp /root/report.html /tmp/report/index.html
 TSM=$( cat /tmp/shm.txt_table )
 TST=$( cat /tmp/sht.txt_table )
