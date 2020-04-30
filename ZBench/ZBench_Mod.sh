@@ -125,7 +125,7 @@ sysctl -p /etc/sysctl.conf
 #"TraceRoute to Shanghai Telecom"
 /tmp/besttrace 61.129.42.6 > /tmp/sht.txt 2>&1 &
 #"TraceRoute to Shanghai Mobile"
-/tmp/besttrace speedtest2.sh.chinamobile.com > /tmp/shm.txt 2>&1 &
+/tmp/besttrace 117.131.48.252 > /tmp/shm.txt 2>&1 &
 #"TraceRoute to Shanghai Unicom"
 /tmp/besttrace 210.22.80.1 > /tmp/shu.txt 2>&1 &
 #"TraceRoute to Guangdong Telecom"
@@ -225,7 +225,7 @@ speed_cn() {
     speed_test_cn '19076' '重庆电信'
     speed_test_cn '4690' '兰州联通'
     speed_test_cn '21005' '上海联通'
-    speed_test_cn '5726' '重庆联通'
+    speed_test_cn '31985' '重庆联通'
     speed_test_cn '16145' '兰州移动'
     speed_test_cn '4647' '杭州移动'
     speed_test_cn '16398' '贵州移动'
