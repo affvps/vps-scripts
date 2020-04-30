@@ -25,8 +25,7 @@ sysctl -p</pre></code>
 修改自ZBench脚本  
 https://github.com/FunctionClub/ZBench/  
 * 使用方法  
-<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/ZBench.sh && bash ZBench.sh
-wget -N --no-check-certificate https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/ZBench-CN.sh && bash ZBench-CN.sh</pre></code>
+<pre><code>wget -N --no-check-certificate https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/ZBench_Mod.sh && bash ZBench_Mod.sh</pre></code>
 ## speedtest
 <pre>wget -N --no-check-certificate https://raw.githubusercontent.com/affvps/vps-scripts/master/speedtest/speedtest.py
 chmod a+rx speedtest.py
