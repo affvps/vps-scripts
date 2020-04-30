@@ -6,7 +6,6 @@ if  [ ! -e '/usr/bin/wget' ]; then
     echo "Error: wget command not found. You must be install wget command at first."
     exit 1
 fi
-read -p "Please Enter Your Host Provider: " Provider
 
 # Check release
 if [ -f /etc/redhat-release ]; then
@@ -33,9 +32,10 @@ YELLOW='\033[0;33m'
 SKYBLUE='\033[0;36m'
 PLAIN='\033[0m'
 
-rm -rf /tmp/report && mkdir /tmp/report
+# Clear tmpfiles
+rm -rf /tmp/report && rm -rf /tmp/*
 
-echo "Installing required packages, please wait..."
+echo "正在安装必要的依赖，请耐心等待..."
 
 # Install Virt-what
 if  [ ! -e '/usr/sbin/virt-what' ]; then
@@ -47,6 +47,15 @@ if  [ ! -e '/usr/sbin/virt-what' ]; then
         apt-get -y install virt-what > /dev/null 2>&1
     fi      
 fi
+
+# Install ca-certificates
+echo "Installing ca-certificates......"
+if [ "${release}" == "centos" ]; then
+    yum -y install ca-certificates > /dev/null 2>&1
+else
+    apt-get -y install ca-certificates > /dev/null 2>&1
+fi
+
 
 # Install uuid
 echo "Installing uuid......"
@@ -71,7 +80,7 @@ if  [ ! -e '/tmp/besttrace' ]; then
     echo "Installing Besttrace......"
     dir=$(pwd)
     cd /tmp/
-    wget  -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/besttrace > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/besttrace
@@ -93,21 +102,25 @@ if  [ ! -e '/tmp/speedtest.py' ]; then
     echo "Installing SpeedTest......"
     dir=$(pwd)
     cd /tmp/
-    wget -N --no-check-certificate https://raw.github.com/sivel/speedtest-cli/master/speedtest.py > /dev/null 2>&1
+    wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py > /dev/null 2>&1
     cd $dir
 fi
 chmod a+rx /tmp/speedtest.py
 
 
-# Install Zping
-if  [ ! -e '/tmp/ZPing.py' ]; then
-    echo "Installing ZPing.py......"
+# Install Zping_Mod
+if  [ ! -e '/tmp/Zping_Mod.py' ]; then
+    echo "Installing Zping_Mod.py......"
     dir=$(pwd)
     cd /tmp/
-    wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/ZPing.py > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/Zping_Mod.py > /dev/null 2>&1
     cd $dir
 fi
-chmod a+rx /tmp/ZPing.py
+chmod a+rx /tmp/Zping_Mod.py
+
+# Disable ipv6
+echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
+sysctl -p /etc/sysctl.conf
 
 #"TraceRoute to Shanghai Telecom"
 /tmp/besttrace 61.129.42.6 > /tmp/sht.txt 2>&1 &
@@ -153,9 +166,8 @@ speed_test() {
 }
 
 speed() {
-    rm -rf /tmp/speed.txt && touch /tmp/speed.txt
     speed_test 'http://cachefly.cachefly.net/100mb.test' 'CacheFly'
-    speed_test 'http://speedtest.tokyo.linode.com/100MB-tokyo.bin' 'Linode, Tokyo, JP'
+    speed_test 'http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin' 'Linode, Tokyo, JP'
     speed_test 'http://speedtest.singapore.linode.com/100MB-singapore.bin' 'Linode, Singapore, SG'
     speed_test 'http://speedtest.london.linode.com/100MB-london.bin' 'Linode, London, UK'
     speed_test 'http://speedtest.frankfurt.linode.com/100MB-frankfurt.bin' 'Linode, Frankfurt, DE'
@@ -177,7 +189,7 @@ speed_test_cn(){
             local relatency=$(echo "$temp" | awk -F ':' '/Hosted/{print $2}')
             local nodeName=$2
 
-            printf "${YELLOW}%-25s${GREEN}%-18s${RED}%-20s${SKYBLUE}%-12s${PLAIN}\n" "${nodeName}" "${reupload}" "${REDownload}" "${relatency}"
+            printf "${YELLOW}%-29s${GREEN}%-18s${RED}%-20s${SKYBLUE}%-12s${PLAIN}\n" "${nodeName}" "${reupload}" "${REDownload}" "${relatency}"
         else
             local cerror="ERROR"
         fi
@@ -194,7 +206,7 @@ speed_test_cn(){
             fi
             local nodeName=$2
 
-            printf "${YELLOW}%-25s${GREEN}%-18s${RED}%-20s${SKYBLUE}%-12s${PLAIN}\n" "${nodeName}" "${reupload}" "${REDownload}" "${relatency}"
+            printf "${YELLOW}%-29s${GREEN}%-18s${RED}%-20s${SKYBLUE}%-12s${PLAIN}\n" "${nodeName}" "${reupload}" "${REDownload}" "${relatency}"
         else
             local cerror="ERROR"
         fi
@@ -203,21 +215,20 @@ speed_test_cn(){
     #Record Speed_cn Data
     echo ${reupload} >> /tmp/speed_cn.txt
     echo ${REDownload} >> /tmp/speed_cn.txt
-    echo ${relatency} >> /tmp/speed_cn.txt    
+    echo ${relatency} >> /tmp/speed_cn.txt
 }
 
 speed_cn() {
-    rm -rf /tmp/speed_cn.txt && touch /tmp/speed_cn.txt
 
-    speed_test_cn '12637' 'XiangYang CT'
-    speed_test_cn '7509' 'HangZhou  CT'
-    speed_test_cn '19076' 'ChongQing   CT'
-    speed_test_cn '5039' 'JiNan     CU'
-    speed_test_cn '5300' 'Hangzhou  CU'
-    speed_test_cn '5726' 'ChongQing CU'
-    speed_test_cn '4575' 'SiChuan   CM'
-    speed_test_cn '4647' 'HangZhou  CM'
-    speed_test_cn '17184' 'TianJin CM'
+    speed_test_cn '3973' '兰州电信'
+    speed_test_cn '7509' '杭州电信'
+    speed_test_cn '19076' '重庆电信'
+    speed_test_cn '4690' '兰州联通'
+    speed_test_cn '21005' '上海联通'
+    speed_test_cn '5726' '重庆联通'
+    speed_test_cn '16145' '兰州移动'
+    speed_test_cn '4647' '杭州移动'
+    speed_test_cn '16398' '贵州移动'
      
     rm -rf /tmp/speedtest.py
 }
@@ -264,36 +275,35 @@ disk_used_size=$( calc_disk ${disk_size2[@]} )
 
 clear
 next
-echo -e "CPU model            : ${SKYBLUE}$cname${PLAIN}"
-echo -e "Number of cores      : ${SKYBLUE}$cores${PLAIN}"
-echo -e "CPU frequency        : ${SKYBLUE}$freq MHz${PLAIN}"
-echo -e "Total size of Disk   : ${SKYBLUE}$disk_total_size GB ($disk_used_size GB Used)${PLAIN}"
-echo -e "Total amount of Mem  : ${SKYBLUE}$tram MB ($uram MB Used)${PLAIN}"
-echo -e "Total amount of Swap : ${SKYBLUE}$swap MB ($uswap MB Used)${PLAIN}"
-echo -e "System uptime        : ${SKYBLUE}$up${PLAIN}"
-echo -e "Load average         : ${SKYBLUE}$load${PLAIN}"
-echo -e "OS                   : ${SKYBLUE}$opsy${PLAIN}"
-echo -e "Arch                 : ${SKYBLUE}$arch ($lbit Bit)${PLAIN}"
-echo -e "Kernel               : ${SKYBLUE}$kern${PLAIN}"
-echo -ne "Virt                 : "
+echo -e "CPU 型号             : ${SKYBLUE}$cname${PLAIN}"
+echo -e "CPU 核心数           : ${SKYBLUE}$cores${PLAIN}"
+echo -e "CPU 频率             : ${SKYBLUE}$freq MHz${PLAIN}"
+echo -e "总硬盘大小           : ${SKYBLUE}$disk_total_size GB ($disk_used_size GB Used)${PLAIN}"
+echo -e "总内存大小           : ${SKYBLUE}$tram MB ($uram MB Used)${PLAIN}"
+echo -e "SWAP大小             : ${SKYBLUE}$swap MB ($uswap MB Used)${PLAIN}"
+echo -e "开机时长             : ${SKYBLUE}$up${PLAIN}"
+echo -e "系统负载             : ${SKYBLUE}$load${PLAIN}"
+echo -e "系统                 : ${SKYBLUE}$opsy${PLAIN}"
+echo -e "架构                 : ${SKYBLUE}$arch ($lbit Bit)${PLAIN}"
+echo -e "内核                 : ${SKYBLUE}$kern${PLAIN}"
+echo -ne "虚拟化平台           : "
 virtua=$(virt-what) 2>/dev/null
 
 if [[ ${virtua} ]]; then
     echo -e "${SKYBLUE}$virtua${PLAIN}"
 else
-    virtua="No Virt"
     echo -e "${SKYBLUE}No Virt${PLAIN}"
 fi
 
+
 next
 io1=$( io_test )
-echo -e "I/O speed(1st run)   :${YELLOW}$io1${PLAIN}"
+echo -e "硬盘I/O (第一次测试) : ${YELLOW}$io1${PLAIN}"
 io2=$( io_test )
-echo -e "I/O speed(2nd run)   :${YELLOW}$io2${PLAIN}"
+echo -e "硬盘I/O (第二次测试) : ${YELLOW}$io2${PLAIN}"
 io3=$( io_test )
-echo -e "I/O speed(3rd run)   :${YELLOW}$io3${PLAIN}"
+echo -e "硬盘I/O (第三次测试) : ${YELLOW}$io3${PLAIN}"
 next
-
 
 ##Record All Test data
 rm -rf /tmp/info.txt
@@ -315,13 +325,14 @@ echo $io2 >> /tmp/info.txt
 echo $io3 >> /tmp/info.txt
 AKEY=$( uuid )
 
-printf "%-26s%-18s%-20s%-12s\n" "Node Name" "IP Address" "Download Speed" "Latency"
+printf "%-30s%-20s%-24s%-12s\n" "节点名称" "IP地址" "下载速度" "延迟"
 speed && next
-printf "%-26s%-18s%-20s%-12s\n" "Node Name" "Upload Speed" "Download Speed" "Latency"
+printf "%-30s%-22s%-24s%-12s\n" "节点名称" "上传速度" "下载速度" "延迟"
 speed_cn && next
-python /tmp/ZPing.py
+python /tmp/Zping_Mod.py
 next
 
+#生成Speedtest节点测试信息
 NetCFspeec=$( sed -n "2p" /tmp/speed.txt )
 NetCFping=$( sed -n "3p" /tmp/speed.txt )
 NetLJPspeed=$( sed -n "5p" /tmp/speed.txt )
@@ -345,7 +356,10 @@ NetSSGping=$( sed -n "30p" /tmp/speed.txt )
 NetSCNspeed=$( sed -n "32p" /tmp/speed.txt )
 NetSCNping=$( sed -n "33p" /tmp/speed.txt )
 
-
+#生成国内节点测试信息
+NetUPST=$( sed -n "1p" /tmp/speed_cn.txt )
+NetDWST=$( sed -n "2p" /tmp/speed_cn.txt )
+NetPiST=$( sed -n "3p" /tmp/speed_cn.txt )
 NetUPST=$( sed -n "4p" /tmp/speed_cn.txt )
 NetDWST=$( sed -n "5p" /tmp/speed_cn.txt )
 NetPiST=$( sed -n "6p" /tmp/speed_cn.txt )
@@ -371,7 +385,7 @@ NetUPCM=$( sed -n "25p" /tmp/speed_cn.txt )
 NetDWCM=$( sed -n "26p" /tmp/speed_cn.txt )
 NetPiCM=$( sed -n "27p" /tmp/speed_cn.txt )
 
-wget -N --no-check-certificate https://raw.githubusercontent.com/lmc920/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
+wget https://raw.githubusercontent.com/affvps/vps-scripts/master/ZBench/Generate.py >> /dev/null 2>&1
 python Generate.py && rm -rf Generate.py && cp /root/report.html /tmp/report/index.html
 TSM=$( cat /tmp/shm.txt_table )
 TST=$( cat /tmp/sht.txt_table )
@@ -383,4 +397,12 @@ TBM=$( cat /tmp/bjm.txt_table )
 TBT=$( cat /tmp/bjt.txt_table )
 TBU=$( cat /tmp/bju.txt_table )
 
-echo "Your bench data is saved to /root/report.html"
+echo "您的测评报告已保存在 /root/report.html"
+
+# Enable ipv6
+sed -i '/net.ipv6.conf.all.disable_ipv6=1/d' /etc/sysctl.conf
+sysctl -p /etc/sysctl.conf
+ping6 ipv6.google.com
+
+# Clear tmpfiles
+rm -rf /tmp/report && rm -rf /tmp/*
