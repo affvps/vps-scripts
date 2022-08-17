@@ -12,7 +12,6 @@
     "blocklist-url": "http://www.example.com/blocklist", 
     "cache-size-mb": 32, 
     "dht-enabled": false, 
-    "download-dir": "/home/GoogleDrive", 
     "download-dir": "/home/downloads", 
     "download-limit": 100, 
     "download-limit-enabled": 0, 
