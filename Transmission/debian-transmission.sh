@@ -2,29 +2,23 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
-# http://dadi.me/ dadi.ME
-# 2013.03.30
+apt-get update && apt-get install -y ca-certificates wget curl
+
 # Transmission | Debian
 
 # VERSION CHOICE
-ver="latest"
-echo "Which version(latest OR stable) do you want to install:"
-read -p "Type latest or stable (latest):" ver
-if [ "$ver" = "" ]; then
-	ver="latest"
-fi
 
 # CONFIGURATION
 username=""
-read -p "Set username(dadi.me):" username
+read -p "Set username(transmission_username):" username
 if [ "$username" = "" ]; then
-	username="dadi.me"
+	username="transmission_username"
 fi
 
 password=""
-read -p "Set password(dadi.me):" password
+read -p "Set password(transmission_password):" password
 if [ "$password" = "" ]; then
-	password="dadi.me"
+	password="transmission_password"
 fi
 
 port=""
@@ -48,20 +42,15 @@ fi
 	char=`get_char`
 
 # START
-if [ "$ver" = "latest" ]; then
-	echo "deb http://ftp.debian.org/debian/ sid main" >> /etc/apt/sources.list
-	echo "deb http://ftp.debian.org/debian/ experimental main" >> /etc/apt/sources.list
 	apt-get update
-	apt-get -t experimental install transmission-daemon -y
-	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
-else
-	apt-get update
+	apt-get upgrade
+	apt-get full-upgrade
+	apt-get dist-upgrade
 	apt-get -y install transmission-daemon
-fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
-wget http://dadi.me/wp-content/uploads/dir/Transmission/settings.json
+wget https://raw.githubusercontent.com/affvps/vps-scripts/master/Transmission/settings.json
 mv -f settings.json /var/lib/transmission-daemon/info/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
@@ -69,7 +58,9 @@ sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-dae
 /etc/init.d/transmission-daemon start
 
 mkdir -p /home/downloads/
+mkdir -p /home/downloadsCache/
 chmod -R 777 /home/downloads/
+chmod -R 777 /home/downloadsCache/
 
 # END
 clear

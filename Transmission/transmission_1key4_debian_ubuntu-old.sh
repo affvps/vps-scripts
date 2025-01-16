@@ -7,6 +7,12 @@ apt-get update && apt-get install -y ca-certificates wget curl
 # Transmission | Debian
 
 # VERSION CHOICE
+ver="latest"
+echo "Which version(latest OR stable) do you want to install:"
+read -p "Type latest or stable:" ver
+if [ "$ver" = "" ]; then
+	ver="latest"
+fi
 
 # CONFIGURATION
 username=""
@@ -42,11 +48,19 @@ fi
 	char=`get_char`
 
 # START
+if [ "$ver" = "latest" ]; then
+	echo "deb http://ftp.debian.org/debian/ sid main" >> /etc/apt/sources.list
+	echo "deb http://ftp.debian.org/debian/ experimental main" >> /etc/apt/sources.list
+	apt-get update
+	apt-get -t sid install transmission-daemon -y
+	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
+else
 	apt-get update
 	apt-get upgrade
 	apt-get full-upgrade
 	apt-get dist-upgrade
 	apt-get -y install transmission-daemon
+fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
